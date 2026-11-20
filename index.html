@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#5db4f0">
+<title>歌声大冒险</title>
+<link rel="stylesheet" href="style.css?v=4">
+
+</head>
+<body>
+<canvas id="bg"></canvas>
+<canvas id="gl"></canvas>
+<canvas id="fx"></canvas>
+
+<div id="hud" hidden>
+  <div class="row">
+    <button id="back" class="round" aria-label="返回">‹</button>
+    <div class="title" id="hud-title"></div>
+    <div class="pill" id="timer" aria-label="剩余时间">⏱ <span id="seconds">60</span></div>
+  </div>
+  <div class="row" id="runner-row">
+    <div class="pill" id="stars">⭐️ <span id="count">0</span></div>
+    <div id="combo"></div>
+  </div>
+  <div id="hint"></div>
+</div>
+
+<section id="home" class="screen">
+  <h1>歌声大冒险</h1>
+  <p class="lead">用你的歌声，把小鸡毛唱回来</p>
+  <div class="menu">
+    <button id="go-levels" class="big">闯关<small>一首一首唱，80 分过关</small></button>
+    <button id="go-runner" class="big orange">跑酷<small>唱得越高，飞得越高</small></button>
+  </div>
+  <p class="small">用麦克风听你唱歌，声音只在本机处理，不会上传。戴耳机最准。</p>
+  <p class="error" id="error" hidden></p>
+</section>
+
+<section id="levels" class="screen sheet" hidden>
+  <div class="row top">
+    <button id="levels-back" class="round" aria-label="返回">‹</button>
+    <div class="title dark">闯关</div>
+    <span class="round ghost"></span>
+  </div>
+  <div id="level-list"></div>
+</section>
+
+<section id="story" class="screen" hidden>
+  <div id="caption"></div>
+  <div class="say golden" id="say-golden"><b></b><p></p></div>
+  <div class="say white" id="say-white"><b></b><p></p></div>
+  <div id="story-foot"><button id="skip">跳过故事</button><span id="more">点一下继续 ▶</span></div>
+</section>
+
+<section id="setup" class="screen" hidden>
+  <div class="card">
+    <h2 id="setup-title"></h2>
+    <p class="small plain-text">跟着上面的音符唱。唱准了小白就出招，没接上小鸡毛会还手。</p>
+    <div class="option"><span>调</span>
+      <div class="stepper"><button id="key-down">−</button><b id="key">原调</b><button id="key-up">＋</button></div></div>
+    <label class="option"><span>旋律提示音</span><input type="checkbox" id="guide" checked></label>
+    <button id="fight" class="big">开始唱</button>
+  </div>
+</section>
+
+<section id="result" class="screen" hidden>
+  <div class="card">
+    <h2 id="result-title">时间到！</h2>
+    <p class="score" id="result-score"></p>
+    <p class="small" id="result-note"></p>
+    <button id="next" class="big" hidden>下一关</button>
+    <button id="again" class="big">再来一次</button>
+    <button id="leave" class="plain">返回</button>
+  </div>
+</section>
+
+<script type="module" src="g.js"></script>
+</body>
+</html>
